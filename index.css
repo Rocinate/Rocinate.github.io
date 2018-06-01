@@ -34,10 +34,6 @@
     width: 100vw;
     overflow: scroll;
   }
-
-  #welcome-part,#question-part,#detail-part {
-    display: none;
-  }
   
   #welcome-part {
     background: white;
