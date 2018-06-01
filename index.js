@@ -1,19 +1,25 @@
 window.onload = function() {
   //变量声明
   var touch,starty,endy,top = 0,changedtop = 0,signal;
-  var start = document.getElementById("WelcomeButtom");  
+  var welcome = document.getElementById("welcome-part");  
   var height = document.documentElement.clientHeight;
   var width = document.documentElement.clientWidth;
   var question = document.getElementsByClassName('question');
   var choice = question[0].getElementsByTagName('p');
+  var recordbutton = document.getElementById('recordbutton');
+  var record = document.getElementById('record');
+  answer = [];
+  choice[0].setAttribute('choose',"A");
+  choice[1].setAttribute('choose',"B");
+  choice[2].setAttribute('choose',"C");
+  choice[3].setAttribute('choose',"D");
   var things = document.getElementById('things');
-  console.log(things.clientHeight,things.scrollTop,things.scrollHeight);
   style = document.getElementById('dynamic');
   body = document.body;
   t=0;
 
   //事件绑定
-  start.onclick = function() {
+  welcome.onclick = function() {
     if(t==0 && (things.scrollTop == 0 || things.clientHeight + things.scrollTop > things.scrollHeight))
     {signal = '-';
     changedynamic(top,signal);
@@ -21,10 +27,16 @@ window.onload = function() {
     body.style.top = top+ "vh";}
   }
 
-
   body.ontouchstart = function(e) {
     touch = e.targetTouches[0];
     starty = touch.pageY;
+  }
+
+  recordbutton.onclick = function() {
+    if(record.innerHTML == "")
+    {for(var i = 0 ; i < answer.length ; i++) {
+      record.innerHTML =  record.innerHTML + answer[i];
+    }}
   }
 
   //给选项添加正确和错误的动画
@@ -32,10 +44,11 @@ window.onload = function() {
     if( i == 2) {choice[i].setAttribute("true","1")} else {choice[i].setAttribute("true","0")}
     choice[i].onclick = function() {
       var that = this;
-      console.log(that.getAttribute('true'));
+      answer.push(that.getAttribute('choose'));
       if(that.getAttribute('true') == 1) {
         that.classList.add('rightanimation');
         that.style.background = "green";
+        
         for(var j = 0;j<choice.length;j++) {
           choice[j].onclick = null;
         }
@@ -93,4 +106,3 @@ function changedynamic(top,signal) {
   style.innerHTML = '@keyframes slide {from {top: '+ top +'vh;}to {top: ' + changedtop + 'vh;}};';
 }
 
-//答案判断和收集
