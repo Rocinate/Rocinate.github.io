@@ -1,0 +1,210 @@
+@keyframes right {
+  0% {background: green}
+  33% {background: rgba(238,238,238,0.8);}
+  66% {background: green};
+}
+
+@keyframes wrong {
+  0% {background: red}
+  33% {background: rgba(238,238,238,0.8);}
+  66% {background: red}; 
+}
+
+@media only screen and (min-width: 321px) and (max-width: 1024px) { 
+  * {
+    box-sizing: border-box;
+  }
+
+  .animation {animation: slide 1s ease-out 1;}
+
+  .rightanimation {animation: right 0.5s ease-out 1;}
+
+  .wronganimation {animation: wrong 0.5s ease-out 1;}
+
+  body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: white;
+    position: relative;
+  }
+  
+  #welcome-part,#question-part,#blog-part,#detail-part {
+    height: 100vh;
+    width: 100vw;
+    overflow: scroll;
+  }
+
+  #welcome-part,#question-part,#detail-part {
+    display: none;
+  }
+  
+  #welcome-part {
+    background: white;
+    font-size: 6rem;
+    transform: translate(0,0);
+  }
+
+  #WelcomeButtom {
+    text-align: center;
+    height: 20%;
+    width: 50%;
+    background: red;
+    padding: 10% 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+  }
+
+  #question-part {
+    background: red;
+    text-align: center;
+    width: 94vw;
+    height: 94vh;
+    margin: 3vh auto;
+    border-radius: 40px;
+  }
+  
+  #blog-part {
+    background: white;
+    font-size: 3rem;
+    transform: translate(0,0);
+    box-sizing: border-box;
+    padding: 0 20px;
+  }
+  
+  #detail-part {
+    background: yellow;
+  }
+
+  .question {
+    font-size: 5rem;
+    border-radius: 60px;
+    background: blue;
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .question-image {
+    margin-top: 10vh;
+    font-size: 4rem;
+    font-weight: bold;
+    height: 20vh;
+  }
+
+  .question>p {
+    display: inline-block;
+    width: 80%;
+    background: rgba(238,238,238,0.8);
+    border-radius: 30px;
+  }
+
+  #part {
+    display: flex;
+    height: 8vh;
+    width: 100vw;
+    text-align: center;
+    vertical-align: top;
+    position: fixed;
+    bottom: 0;
+    background: white;
+  }
+
+  #part>div {
+    flex: 1;
+    line-height: 0rem;
+  }
+
+  #part img {
+    height: 5rem;
+    width: 5rem;
+    margin-bottom: -20px;
+  }
+
+  #plus {
+    border-radius: 10px;
+    height: 7vh;
+    width: 15vw;
+    flex: 0 0 auto !important;
+    background: orange;
+    margin: 0.5vh 0; 
+    transform: translate(0,0);
+  }
+
+  #plus>img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+  }
+
+  nav {
+    display: flex;
+    font-size: 2rem;
+    margin: 10px 0;
+  }
+
+  nav>div {
+    flex: 1;
+    text-align: center;
+  }
+  
+  #SignButtom {
+    text-align: left;
+    color: orange;
+  }
+
+  #Login {
+    text-align: right;
+    color: orange;
+  }
+
+  .picture {
+    width: 100%;
+  }
+  
+  .head {
+    height: 7rem;
+    width: 7rem;
+    display: inline-block;
+    border-radius: 50%;
+  }
+
+  .time {
+    color: darkgrey;
+    font-size: 2.5rem;
+  }
+
+  .title {
+    display: inline-block;
+    line-height: 1rem;
+    margin-bottom: -1rem;
+  }
+
+  .follow {
+    position: absolute;
+    right: 20px;
+    top: 40px;
+    display: inline-block;
+    border: 1px solid orange;
+    color: orange;
+    padding: 20px 0;
+  }
+
+  #things {
+    height: 90vh;
+    overflow: scroll;
+  }
+
+  #content {
+    line-height: 1rem;
+    font-size: 8px;
+  }
+}
+ 
+@media only screen and (min-width: 1029px) {
+  body {
+    background: black;
+  }
+}
